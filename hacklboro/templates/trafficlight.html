@@ -41,20 +41,21 @@
 			{% else %}
 			<div class="red-card-header card-main">
             {% endif %}
-            
-            <h2>{{ company["name"] }}</h2>
                 
             {% if company["rating"] > 75 %}
-            <h2>&#128525</h2>
+            <h2 class="float-right">&#128525</h2>
             {% elif company["rating"] > 50 %}
-            <h2>&#128528</h2>
+            <h2 class="float-right">&#128528</h2>
             {% else %}
-            <h2>&#129326</h2>
+            <h2 class="float-right">&#129326</h2>
             {% endif %}
-
+            
+            <h2>{{ company["name"] }}</h2>
+            <h2>{{ company["rating"] }}</h2>
+            
 			</div>
-			<div class="card-main">
-				<p>{{ company["rating"] }}</p>
+			<div>
+				<p>{{ company["text"] }}</p>
 			</div>
 		</div>
 		{% endfor %}
