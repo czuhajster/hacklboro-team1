@@ -1,0 +1,8 @@
+CREATE TABLE goals
+(
+    id         INTEGER NOT NULL PRIMARY KEY,
+    user       INTEGER NOT NULL,
+    percentage REAL    NOT NULL,
+    name       TEXT    NOT NULL,
+    increasing INTEGER NOT NULL
+);
