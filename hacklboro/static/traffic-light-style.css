@@ -1,0 +1,103 @@
+* {
+	font-family: sans-serif;
+}
+
+
+nav {
+	background-color: #efefef;
+	overflow:hidden;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
+
+a {
+	color: black;
+	text-decoration: none;
+	padding: 25px 15px;
+	font-size: 17px;
+	display: inline-block;
+}
+
+
+.primary-nav-links {
+	float: left;
+}
+
+
+.secondary-nav-links {
+	float: right;
+}
+
+
+#melon-title {
+	float: left;
+	padding-right: 50px;
+	font-size: 25px;
+}
+
+
+input[type=text] {
+	float: right;
+	text-align: right;
+	padding: 6px;
+	border: none;
+	margin-top: 30px;
+	margin-right: 50px;
+	font-size: 17px;	
+	background-color: #efefef;
+	border-radius: 15px;
+}
+
+
+.container {
+	margin-top: 100px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 350px;
+	background-color: #efefef;
+	border-radius: 15px;
+	margin-bottom: 30px;
+	min-height: 450px;
+}
+
+
+.green-card-header {
+	background-color: #b5ead7;
+	border-radius: 15px 15px 0 0;
+	padding: 7px;
+}
+
+
+.amber-card-header {
+	background-color: #ffdac1;
+	border-radius: 15px 15px 0 0;
+	padding: 7px;
+}
+
+
+.red-card-header {
+	background-color: #ff9aa2;	
+	border-radius: 15px 15px 0 0;
+	padding: 7px;
+}
+
+
+h2 {
+	text-align: right;
+	margin-right: 15px;
+}
+
+
+p {
+	text-align: left;
+	margin-left: 25px;
+}
+

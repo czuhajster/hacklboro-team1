@@ -1,0 +1,49 @@
+.myNavbar {
+    background-color: #EFEFEF;
+}
+
+.progressBar {
+    background-color: #EFEFEF;
+    border-radius: 20px;
+}
+
+.green-button {
+    background-color: #B5EAD7;
+}
+
+.align-right {
+    right: 0;
+}
+
+.content-box {
+    min-height: 80vh;
+}
+
+.circle-icon {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.myFooter {
+    text-align: center;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.margin-top {
+    margin-top: 0;
+}
+@media screen and (min-width: 800px) {
+    .margin-top {
+        margin-top: 20vh;
+    }
+  }
+
+  .overflow {
+      max-height: 80vh;
+      overflow-y: auto;
+  }
