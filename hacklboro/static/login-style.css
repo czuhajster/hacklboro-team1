@@ -1,0 +1,19 @@
+.content-box {
+    height: 80vh;
+}
+
+.vertical-center {
+    /* min-height: 100%;  */
+    margin-top: 300px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.green-button {
+    background-color: #B5EAD7;
+}
+
+.margin-div {
+    /* height: 400px; */
+}
