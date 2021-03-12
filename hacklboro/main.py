@@ -21,8 +21,8 @@ def load_user(userid):
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
+        username: str = request.form["username"]
+        password: str = request.form["password"]
 
         if User.verify(username, password):
             login_user(User(User.get_from_username(username)[0]))
@@ -42,8 +42,8 @@ def logout():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
+        username: str = request.form["username"]
+        password: str = request.form["password"]
 
         User.create(username, password)
 
