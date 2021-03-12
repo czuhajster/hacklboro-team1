@@ -31,32 +31,34 @@
 
 
 	<div class="container">
+		
+		{% for company in companies %}
 		<div class="card">
+			{% if company["rating"] > 70 %}
 			<div class="green-card-header card-main">
-				<h2>&#128525</h2>
-			</div>
-			<div class="card-main">
-				<p>content</p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="amber-card-header card-main">
-				<h2>&#128528</h2>
-			</div>
-			<div class="card-main">
-				<p>content</p>
-			</div>
-		</div>
-
-		<div class="card">
+			{% elif company["rating"] > 50 %}
+            <div class="amber-card-header card-main">
+			{% else %}
 			<div class="red-card-header card-main">
-				<h2>&#129326</h2>
+            {% endif %}
+            
+            <h2>{{ company["name"] }}</h2>
+                
+            {% if company["rating"] > 75 %}
+            <h2>&#128525</h2>
+            {% elif company["rating"] > 50 %}
+            <h2>&#128528</h2>
+            {% else %}
+            <h2>&#129326</h2>
+            {% endif %}
+
 			</div>
 			<div class="card-main">
-				<p>content</p>
+				<p>{{ company["rating"] }}</p>
 			</div>
 		</div>
+		{% endfor %}
+
 	</div>
 </body>
 
