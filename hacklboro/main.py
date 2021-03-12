@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, abort
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 import hacklboro.database
@@ -77,9 +77,10 @@ def goals_data():
         id: int = form["id"]
         percentage: float = form["percentage"]
 
-        update_goal(id, percentage)
-
-        return "OK"
+        success = update_goal(id, user_id, percentage)
+        if success:
+            return "OK"
+        abort(401)
 
 
 @app.route("/goals")
