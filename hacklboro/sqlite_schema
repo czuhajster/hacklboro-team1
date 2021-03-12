@@ -8,7 +8,7 @@ CREATE TABLE goals
     FOREIGN KEY (user) REFERENCES user (id)
 );
 
-CREATE TABLE user
+CREATE TABLE users
 (
     id       INTEGER             NOT NULL PRIMARY KEY,
     username VARCHAR(255) UNIQUE NOT NULL,
