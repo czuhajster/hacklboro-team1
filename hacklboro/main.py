@@ -1,9 +1,9 @@
 from flask import Flask, request, render_template, redirect, url_for
 from flask_login import LoginManager, login_user, login_required, logout_user
 
-import database
-from auth import User
+import hacklboro.database
 
+from hacklboro.auth import User
 from hacklboro.goals import get_goals, get_goals_as_json, create_goal, update_goal
 from hacklboro.utilities import row_list_to_json
 

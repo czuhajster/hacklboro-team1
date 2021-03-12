@@ -1,6 +1,7 @@
 from flask_login import UserMixin
 from passlib.hash import bcrypt
-from database import DATABASE_FILE
+
+from hacklboro.database import DATABASE_FILE
 
 import sqlite3
 
