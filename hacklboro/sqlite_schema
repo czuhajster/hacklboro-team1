@@ -4,7 +4,8 @@ CREATE TABLE goals
     user       INTEGER NOT NULL,
     percentage REAL    NOT NULL,
     name       TEXT    NOT NULL,
-    increasing INTEGER NOT NULL
+    increasing INTEGER NOT NULL,
+    FOREIGN KEY (user) REFERENCES user(id)
 );
 CREATE TABLE user
 (
