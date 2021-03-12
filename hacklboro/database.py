@@ -17,5 +17,3 @@ if not os.path.isfile(DATABASE_FILE):
     con = sqlite3.connect(DATABASE_FILE)
     init_db()
     con.close()
-
-con: Connection = sqlite3.connect(DATABASE_FILE)
