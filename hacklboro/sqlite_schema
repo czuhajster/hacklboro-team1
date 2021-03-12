@@ -19,14 +19,6 @@ CREATE TABLE company
 (
     id     INTEGER      NOT NULL PRIMARY KEY,
     name   VARCHAR(255) NOT NULL,
-    rating REAL         NOT NULL
-);
-
-CREATE TABLE ratings
-(
-    id       INTEGER    NOT NULL PRIMARY KEY,
-    company  INTEGER    NOT NULL,
-    category TEXT       NOT NULL,
-    weight   REAL       NOT NULL,
-    FOREIGN KEY (company) REFERENCES company (id)
+    rating REAL         NOT NULL,
+    text   TEXT         NOT NULL
 );

@@ -1,10 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="../static/goals-style.css"> <!-- change to static -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="../static/progress-bars-style.css">
 <head>
     <meta charset="UTF-8">
     <title>Goals</title>
 </head>
 <body>
+<nav class="myNavbar navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">Melon</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="emoji">🍉</span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Traffic lights <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Goals</a>
+            </li>
+        </li>
 
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Logout</a>
+            </li>
+        </ul>
+
+        </ul>
+    </div>
+    </nav>
+
+    <div class="container-fluid mt-3"> <!-- make it scrollable -->
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
+                <div class="container">
+                    <div class="col-10">
+                    <form class="form-inline">
+                        <input class="form-control col-12" type="search" placeholder="Type your new goal..." aria-label="Type your new goal..">
+                        <button class="mt-2 btn col-12 green-button" type="submit">Add new goal</button>
+                    </form>    
+                </div>
+            </div>
+            </div>
+        
+        <div class="col-lg-8 col-md-8 col-sm-12">
+            <!-- PROGRESS BAR -->
+            <div class="container-fluid">
+                <div class="row mb-3">
+                    <div class="container col-lg-6 col-md-6 col-sm-6">
+                        <div class="progressBar col-12 p-3">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 col-sm-12">
+                                    <div class="progress yellow">
+                                        <span class="progress-left">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">90%</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-12 col-sm-12">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel pellentesque ipsum. Proin faucibus placerat libero vitae gravida. Maecenas ut pharetra est. Vivamus ac nulla in orci pulvinar ornare sed at libero.
+                                </div>
+                            </div>
+                            
+                            
+                        </div>      
+                    </div>        
+
+                    <div class="container col-lg-6 col-md-6 col-sm-6">
+                        <div class="progressBar col-12 p-3">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 col-sm-12">
+                                    <div class="progress pink">
+                                        <span class="progress-left">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">75%</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-12 col-sm-12">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel pellentesque ipsum. Proin faucibus placerat libero vitae gravida. Maecenas ut pharetra est. Vivamus ac nulla in orci pulvinar ornare sed at libero.
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="container col-lg-6 col-md-6 col-sm-6">
+                        <div class="progressBar col-12 p-3">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 col-sm-12">
+                                    <div class="progress yellow">
+                                        <span class="progress-left">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">90%</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-12 col-sm-12">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel pellentesque ipsum. Proin faucibus placerat libero vitae gravida. Maecenas ut pharetra est. Vivamus ac nulla in orci pulvinar ornare sed at libero.
+                                </div>
+                            </div>
+                            
+                            
+                        </div>      
+                    </div>        
+
+                    <div class="container col-lg-6 col-md-6 col-sm-6">
+                        <div class="progressBar col-12 p-3">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 col-sm-12">
+                                    <div class="progress pink">
+                                        <span class="progress-left">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">75%</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-12 col-sm-12">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel pellentesque ipsum. Proin faucibus placerat libero vitae gravida. Maecenas ut pharetra est. Vivamus ac nulla in orci pulvinar ornare sed at libero.
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>    
+            </div>  
+        </div>    
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
