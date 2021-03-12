@@ -12,7 +12,12 @@ def login():
         # TODO: Do login
         pass
     else:
-        return render_template("home.html")
+        return render_template("login.html")
+
+
+@app.route("/goals")
+def goals():
+    return render_template("goals.html")
 
 
 @app.route("/")
