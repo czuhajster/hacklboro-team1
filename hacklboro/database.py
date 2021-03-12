@@ -1,5 +1,5 @@
 import sqlite3
 
-DATABASE_FILE = "database.db"
+DATABASE_FILE = "hacklboro/database.db"
 
 con = sqlite3.connect(DATABASE_FILE)
