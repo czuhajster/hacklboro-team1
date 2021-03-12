@@ -5,25 +5,28 @@ CREATE TABLE goals
     percentage REAL    NOT NULL,
     name       TEXT    NOT NULL,
     increasing INTEGER NOT NULL,
-    FOREIGN KEY (user) REFERENCES user(id)
+    FOREIGN KEY (user) REFERENCES user (id)
 );
+
 CREATE TABLE user
 (
-    id         INTEGER NOT NULL PRIMARY KEY,
-    username   VARCHAR(255) UNIQUE NOT NULL,
-    password   VARCHAR(255) NOT NULL
-); 
+    id       INTEGER             NOT NULL PRIMARY KEY,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255)        NOT NULL
+);
+
 CREATE TABLE company
 (
-    id         INTEGER NOT NULL PRIMARY KEY,
-    name       VARCHAR(255) NOT NULL,
-    rating     REAL NOT NULL,
+    id     INTEGER      NOT NULL PRIMARY KEY,
+    name   VARCHAR(255) NOT NULL,
+    rating REAL         NOT NULL
 );
+
 CREATE TABLE ratings
 (
-    company    VARCHAR(255) NOT NULL,
-    category   VARCHAR(255) NOT NULL,
-    weight     REAL NOT NULL,
+    company  VARCHAR(255) NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    weight   REAL         NOT NULL,
     PRIMARY KEY (company, category),
-    FOREIGN KEY (company) REFERENCES company(name)
+    FOREIGN KEY (company) REFERENCES company (name)
 );
