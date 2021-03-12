@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Melon</title>
-	<link rel="stylesheet" href="../static/traffic-light-style.css"
+	<link rel="stylesheet" href="../static/traffic-light-style.css">
 </head>
 
 <body>
@@ -14,13 +14,13 @@
 		<h2 id="melon-title">Melon</h2>
 			
 		<div class="primary-nav-links">
-			<a class="active" href="#home">Traffic light</a>
-			<a href="#goals">Goals</a>
+			<a class="active" href="/">Traffic light</a>
+			<a href="/goals">Goals</a>
 		</div>
 
 		<div class="secondary-nav-links">
-			<a href="#register"> Register </a>
-			<a href="#login"> Login </a>
+			<a href="/register"> Register </a>
+			<a href="/login"> Login </a>
 		</div>
 	</nav>
 
@@ -31,32 +31,35 @@
 
 
 	<div class="container">
+		
+		{% for company in companies %}
 		<div class="card">
+			{% if company["rating"] > 70 %}
 			<div class="green-card-header card-main">
-				<h2>&#128525</h2>
-			</div>
-			<div class="card-main">
-				<p>content</p>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="amber-card-header card-main">
-				<h2>&#128528</h2>
-			</div>
-			<div class="card-main">
-				<p>content</p>
-			</div>
-		</div>
-
-		<div class="card">
+			{% elif company["rating"] > 50 %}
+            <div class="amber-card-header card-main">
+			{% else %}
 			<div class="red-card-header card-main">
-				<h2>&#129326</h2>
+            {% endif %}
+                
+            {% if company["rating"] > 75 %}
+            <h2 class="float-right">&#128525</h2>
+            {% elif company["rating"] > 50 %}
+            <h2 class="float-right">&#128528</h2>
+            {% else %}
+            <h2 class="float-right">&#129326</h2>
+            {% endif %}
+            
+            <h2>{{ company["name"] }}</h2>
+            <h2>{{ company["rating"] }}</h2>
+            
 			</div>
-			<div class="card-main">
-				<p>content</p>
+			<div>
+				<p>{{ company["text"] }}</p>
 			</div>
 		</div>
+		{% endfor %}
+
 	</div>
 </body>
 
