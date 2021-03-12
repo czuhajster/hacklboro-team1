@@ -89,6 +89,11 @@ def goals():
     return render_template("goals.html")
 
 
+@app.route("/traffic-lights")
+def traffic_lights():
+    return render_template("traffic-lights.html")
+
+
 @app.route("/")
 def home():
     return render_template("goals.html")
