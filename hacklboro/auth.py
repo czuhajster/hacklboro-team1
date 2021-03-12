@@ -9,13 +9,15 @@ class User(UserMixin):
     @staticmethod
     def get_from_userid(userid):
         with sqlite3.connect(DATABASE_FILE) as con:
+            con.row_factory = sqlite3.Row
             cur = con.cursor()
-            cur.execute("SELECT (id, username) FROM users WHERE id=?", userid)
+            cur.execute("SELECT * FROM users WHERE id=?", userid)
             return cur.fetchone()
 
     @staticmethod
     def get_from_username(username):
         with sqlite3.connect(DATABASE_FILE) as con:
+            con.row_factory = sqlite3.Row
             cur = con.cursor()
             cur.execute("SELECT * FROM users WHERE username=?", (username,))
             return cur.fetchone()
@@ -31,7 +33,7 @@ class User(UserMixin):
     @staticmethod
     def verify(username, password):
         user = User.get_from_username(username)
-        return bcrypt.verify(password, user[2])
+        return bcrypt.verify(password, user["password"])
 
     def __init__(self, userid):
         self.userid = userid
