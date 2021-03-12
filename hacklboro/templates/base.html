@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../static/style.css">
     <title>{% block title %}{% endblock %}</title>
     {% block head %}
     {% endblock %}
@@ -17,11 +18,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Traffic lights <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/traffic-lights">Traffic lights <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <span class="nav-item active">
-                        <a class="nav-link" href="#">Goals</a>
+                        <a class="nav-link" href="/goals">Goals</a>
                     </span>
                 </li>
             </ul>
@@ -35,12 +36,21 @@
                  </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Logout</a>
+                    <a class="nav-link" href="/logout">Logout</a>
                  </li>
             </ul>
         </div>
     </nav>
 
     {% block content %}{% endblock %}
+
+    <footer class="myFooter mastfoot mt-auto center">
+        <div class="inner">
+          <p>
+              Created by <a href="">Tangil</a>, <a href="">Arkadiusz</a>, <a href="">Dan</a>,
+              <a href="">Weronika</a> and <a href="">Zaynab</a>. HackLboro 2021
+          </p>
+        </div>
+    </footer>
 </body>
 </html>
