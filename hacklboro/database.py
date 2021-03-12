@@ -1,6 +1,5 @@
 import os
 import sqlite3
-from sqlite3 import Connection
 
 DATABASE_FILE = "hacklboro/database.db"
 SCHEMA_FILE = "hacklboro/sqlite_schema"
