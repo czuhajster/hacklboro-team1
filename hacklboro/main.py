@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, redirect, url_for
-from flask_login import LoginManager, login_user, login_required, logout_user
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 import hacklboro.database
 
@@ -55,20 +55,21 @@ def signup():
 
 
 @app.route("/goals/data", methods=["GET", "POST", "PUT"])
+@login_required
 def goals_data():
     form = request.form
+    user_id = current_user.userid
+
     if request.method == "GET":
         # GET method for getting current goals
-        user = form["user"]
-        return get_goals_as_json(user)
+        return get_goals_as_json(user_id)
     elif request.method == "POST":
         # POST method for creating new goals
-        user: int = form["user"]
         percentage: float = form["percentage"]
         name: str = form["name"]
         increasing: bool = form["increasing"]
 
-        create_goal(user, percentage, name, increasing)
+        create_goal(user_id, percentage, name, increasing)
 
         return 200
     elif request.method == "PUT":
