@@ -13,3 +13,17 @@ CREATE TABLE user
     username   VARCHAR(255) UNIQUE NOT NULL,
     password   VARCHAR(255) NOT NULL
 ); 
+CREATE TABLE company
+(
+    id         INTEGER NOT NULL PRIMARY KEY,
+    name       VARCHAR(255) NOT NULL,
+    rating     REAL NOT NULL,
+);
+CREATE TABLE ratings
+(
+    company    VARCHAR(255) NOT NULL,
+    category   VARCHAR(255) NOT NULL,
+    weight     REAL NOT NULL
+    PRIMARY KEY (company, category),
+    FOREIGN KEY (company) REFERENCES company(name)
+);
