@@ -69,24 +69,23 @@ input[type=text] {
 }
 
 
-.green-card-header {
-	background-color: #b5ead7;
+.card-main {
 	border-radius: 15px 15px 0 0;
 	padding: 7px;
+}
+
+.green-card-header {
+	background-color: #b5ead7;
 }
 
 
 .amber-card-header {
 	background-color: #ffdac1;
-	border-radius: 15px 15px 0 0;
-	padding: 7px;
 }
 
 
 .red-card-header {
-	background-color: #ff9aa2;	
-	border-radius: 15px 15px 0 0;
-	padding: 7px;
+	background-color: #ff9aa2;
 }
 
 
