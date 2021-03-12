@@ -24,9 +24,9 @@ CREATE TABLE company
 
 CREATE TABLE ratings
 (
-    company PRIMARY KEY NOT NULL,
+    id       INTEGER    NOT NULL PRIMARY KEY,
+    company  INTEGER    NOT NULL,
     category TEXT       NOT NULL,
     weight   REAL       NOT NULL,
-    PRIMARY KEY (company, category),
     FOREIGN KEY (company) REFERENCES company (id)
 );
