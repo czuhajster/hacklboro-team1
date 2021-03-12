@@ -71,7 +71,7 @@ def goals_data():
 
         create_goal(user_id, percentage, name, increasing)
 
-        return 200
+        return "OK"
     elif request.method == "PUT":
         # PUT method for updating current goals
         id: int = form["id"]
@@ -79,7 +79,7 @@ def goals_data():
 
         update_goal(id, percentage)
 
-        return 200
+        return "OK"
 
 
 @app.route("/goals")
