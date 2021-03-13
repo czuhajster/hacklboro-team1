@@ -5,6 +5,7 @@ import hacklboro.database
 
 from hacklboro.auth import User
 from hacklboro.goals import get_goals, get_goals_as_json, create_goal, update_goal
+from hacklboro.lights import get_companies
 from hacklboro.utilities import row_list_to_json
 
 app = Flask(__name__)
@@ -91,7 +92,8 @@ def goals():
 
 @app.route("/traffic-lights")
 def traffic_lights():
-    return render_template("trafficlight.html")
+    companies = get_companies()
+    return render_template("trafficlight.html", companies=companies)
 
 
 @app.route("/")
