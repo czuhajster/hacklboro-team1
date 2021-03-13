@@ -11,13 +11,15 @@
 
 {% block content %}
 	<div class="search-bar">
-		<input type="text" placeholder="&#128269">
+    <ul>
+      <li><input type="text" placeholder="&#128269"></li>
+    </ul>
 	</div>
 
 	<div class="container">
 		
 		{% for company in companies %}
-		<div class="card">
+    <div class="card" id="{{ company["name"] }}" tabindex="0">
 			{% if company["rating"] > 70 %}
 			<div class="green-card-header card-main">
 			{% elif company["rating"] > 50 %}
@@ -34,7 +36,7 @@
             <h2 class="float-right">&#129326</h2>
             {% endif %}
             
-            <h2>{{ company["name"] }}</h2>
+            <h2 class="company-name">{{ company["name"] }}</h2>
             <h2>{{ company["rating"] }}</h2>
             
 			</div>
@@ -45,4 +47,8 @@
 		{% endfor %}
 
 	</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="../static/search.js"></script>
 {% endblock %}

@@ -4,11 +4,16 @@ input[type=text] {
     text-align: right;
     padding: 6px;
     border: none;
-    margin-top: 30px;
-    margin-right: 50px;
     font-size: 17px;
     background-color: #efefef;
     border-radius: 15px;
+}
+
+.search-bar ul {
+    border-radius: 15px;
+    list-style-type: none;
+    margin-top: 30px;
+    margin-right: 50px;
 }
 
 
@@ -67,3 +72,38 @@ input[type=text] {
     margin-top: 10px;
 }
 
+.card:focus {
+  border-color: black;
+  border-radius: 100px;
+  background-color: yellow;
+}
+
+.not-found {
+    text-align: center;
+    background-color: #ff9aa2;
+    border-radius: 15px;
+    float: right;
+    z-index: -1;
+    font-size: 17px;
+    padding: 6px 40px 6px 6px;
+    text-align: left;
+    position: relative;
+    left: 30px;
+}
+
+.ui-autocomplete {
+    background-color: #efefef;
+    list-style-type: none;
+    border-radius: 15px;
+    // margin-right: 50px;
+}
+
+/*
+.ui-autocomplete li {
+    // border-top: 1px solid #999999;
+}
+*/
+
+.ui-helper-hidden-accessible {
+    display:none;
+}
