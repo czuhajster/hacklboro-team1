@@ -156,6 +156,10 @@ def traffic_lights():
 
 @app.route("/calculator", methods=["GET", "POST"])
 def calculator():
+    """
+    Page displaying the calculator for transport and CO2 emissions
+    """
+    # Post request shows the calculation
     if request.method == "POST":
         random_facts = [
             "Coal burning globally emits 14.7 billion tonnes of CO2 each year.",
@@ -203,7 +207,10 @@ def calculator():
 
             emissions = miles * average_cruise_emissions_per_mile
 
-        return render_template("calculator-result.html", emissions=f"{emissions:.2f}", distance=f"{miles:.2f}", fact=random.choice(random_facts))
+        return render_template("calculator-result.html", emissions=f"{emissions:.2f}", distance=f"{miles:.2f}",
+                               fact=random.choice(random_facts))
+
+    # GET request shows the calculator for user input
     return render_template("calculator.html")
 
 
