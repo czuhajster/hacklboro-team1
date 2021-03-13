@@ -6,12 +6,16 @@ SCHEMA_FILE = "hacklboro/sqlite_schema"
 
 
 def init_db():
+    """
+    Initialises the database with the script pointed to by SCHEMA_FILE
+    """
     with open(SCHEMA_FILE) as f:
         text = f.read()
         con.executescript(text)
         con.commit()
 
 
+# Initialise the database if the db file doesn't exist
 if not os.path.isfile(DATABASE_FILE):
     con = sqlite3.connect(DATABASE_FILE)
     init_db()
@@ -19,6 +23,11 @@ if not os.path.isfile(DATABASE_FILE):
 
 
 def generate_data():
+    """
+    Add fake test data to the database
+    Note that all tables get generated data added to them
+    """
+
     import random
     from hacklboro.auth import User
     from hacklboro.goals import create_goal

@@ -16,21 +16,35 @@ login_manager.init_app(app)
 
 @app.errorhandler(404)
 def page_not_found(e):
+    """
+    Custom error if the user goes on a missing page
+    """
     return render_template('not-found.html'), 404
 
 
 @app.errorhandler(401)
 def unauthorized(e):
+    """
+    Custom error if the user goes on a page they're not allowed to access
+    """
     return render_template('unauthorized.html'), 401
 
 
 @login_manager.user_loader
 def load_user(userid):
+    """
+    Loads the User object so that we know who we are serving
+    """
     return User(userid)
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Login page for the website. GET request to see the page and POST request to log in.
+    """
+
+    # POST request requires Content-Type: application/x-www-form-urlencoded for the form to log in
     if request.method == "POST":
         username: str = request.form["username"]
         password: str = request.form["password"]
@@ -47,12 +61,18 @@ def login():
 @app.route("/logout", methods=["GET"])
 @login_required
 def logout():
+    """
+    Logout redirect to remove the user session
+    """
     logout_user()
     return redirect(url_for('home'))
 
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
+    """
+    Signup page to create a user account
+    """
     if request.method == "POST":
         username: str = request.form["username"]
         password: str = request.form["password"]
@@ -69,6 +89,10 @@ def signup():
 @app.route("/goals/data", methods=["GET", "POST", "PUT"])
 @login_required
 def goals_data():
+    """
+    API endpoint for interacting with the goals that the user has
+    This is used by the frontend to create/update goals with JavaScript
+    """
     form = request.form
     user_id = current_user.userid
 
@@ -98,6 +122,10 @@ def goals_data():
 @app.route("/goals")
 @login_required
 def goals():
+    """
+    Page displaying all of the user's goals
+    This is not the same as the API endpoint for the goals
+    """
     user_id = current_user.userid
     goals = get_goals(user_id)
     return render_template("goals.html", goals=goals)
@@ -105,6 +133,9 @@ def goals():
 
 @app.route("/traffic-lights")
 def traffic_lights():
+    """
+    Page displaying data about companies and how good they are on a traffic light scale
+    """
     companies = get_companies()
     return render_template("trafficlight.html", companies=companies)
 
