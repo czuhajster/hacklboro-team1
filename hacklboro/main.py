@@ -142,6 +142,19 @@ def traffic_lights():
     return render_template("trafficlight.html", companies=companies)
 
 
+@app.route("/calculator", methods=["GET", "POST"])
+def calculator():
+    if request.method == "POST":
+        average_car_emissions_per_km: float = 0.1224
+        average_car_emissions_per_mile: float = average_car_emissions_per_km * 1.60934
+
+        miles: float = float(request.form["miles"])
+        emissions: float = miles * average_car_emissions_per_mile
+
+        return render_template("calculator-result.html", emissions=f"{emissions:.2f}")
+    return render_template("calculator.html")
+
+
 @app.route("/")
 def home():
     return render_template("home.html")
