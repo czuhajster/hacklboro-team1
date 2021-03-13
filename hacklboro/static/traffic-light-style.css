@@ -65,3 +65,28 @@ input[type=text] {
     margin-left: 25px;
 }
 
+.card:focus {
+  border-color: black;
+  border-radius: 100px;
+  background-color: yellow;
+}
+
+.not-found {
+    float: right;
+    text-align: center;
+}
+
+.ui-autocomplete {
+    background-color: #efefef;
+    list-style-type: none;
+    border-radius: 15px;
+    margin-right: 50px;
+}
+
+.ui-autocomplete li {
+    border-top: 1px solid #999999;
+}
+
+.ui-helper-hidden-accessible {
+    display:none;
+}
