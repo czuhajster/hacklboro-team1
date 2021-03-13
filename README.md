@@ -6,13 +6,9 @@ little, we can all make a **difference**.
 
 ## Screenshots
 
-<img width="256" src="images/home.png">
+<img width="400" src="images/home.png">
 
-<img width="256" src="images/traffic.png">
-
-<img width="256" src="images/goals.gif">
-
-<img width="256" src="images/calculator.gif">
+<img width="400" src="images/traffic.png">
 
 ## Features
 
