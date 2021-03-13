@@ -185,6 +185,11 @@ def calculator():
             average_train_emissions_per_mile: float = average_train_emissions_per_km * 1.60934
 
             emissions = miles * average_train_emissions_per_mile
+        elif transport == "cruise":
+            average_cruise_emissions_per_km: float = 0.254
+            average_cruise_emissions_per_mile: float = average_cruise_emissions_per_km * 1.60934
+
+            emissions = miles * average_cruise_emissions_per_mile
 
         return render_template("calculator-result.html", emissions=f"{emissions:.2f}", distance=f"{miles:.2f}")
     return render_template("calculator.html")
