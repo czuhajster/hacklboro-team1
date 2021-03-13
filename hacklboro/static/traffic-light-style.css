@@ -4,11 +4,16 @@ input[type=text] {
     text-align: right;
     padding: 6px;
     border: none;
-    margin-top: 30px;
-    margin-right: 50px;
     font-size: 17px;
     background-color: #efefef;
     border-radius: 15px;
+}
+
+.search-bar ul {
+    border-radius: 15px;
+    list-style-type: none;
+    margin-top: 30px;
+    margin-right: 50px;
 }
 
 
@@ -74,13 +79,15 @@ input[type=text] {
 .not-found {
     float: right;
     text-align: center;
+    background-color: #ff9aa2;
+    border-radius: 15px;
 }
 
 .ui-autocomplete {
     background-color: #efefef;
     list-style-type: none;
     border-radius: 15px;
-    margin-right: 50px;
+    // margin-right: 50px;
 }
 
 .ui-autocomplete li {

@@ -7,13 +7,15 @@ $(document).ready(function() {
     names.push(companies[i].innerHTML);
   }
 
-  $(".search-bar > input").autocomplete({
+  // Add auto completion
+
+  $(".search-bar input").autocomplete({
     source: names,
-    appendTo: ".search-bar"
+    appendTo: ".search-bar > ul"
   });
-  $(".search-bar > input").keyup(function (event) {
+  $(".search-bar input").keyup(function (event) {
     if (event.key == "Enter") {
-      focusCard($(".search-bar > input").val());
+      focusCard($(".search-bar input").val());
     }
   });
 
@@ -26,6 +28,6 @@ $(document).ready(function() {
       }
     }
     alert("Company \"" + name + "\" has not been found");
-    $(".search-bar").append("<p class='not-found'>Company not found</p>");
+    $(".search-bar ul").append("<li class='not-found'>Company not found</li>");
   }
 });
