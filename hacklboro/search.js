@@ -3,7 +3,7 @@
 
 // Find company and show error message if not found.
 
-function findCompany(name) {
+function findCompany(name, companies) {
   for (let i = 0; i < companies.length; i++) {
     if (name == companies[i].innerHTML) {
       window.location.hash = '#' + name;
@@ -22,18 +22,19 @@ function findCompany(name) {
 
 function addCompanies() {
   var companies = $(".company-name");
+  var names = []
   for (let i = 0; i < companies.length; i++) {
     names.push(companies[i].innerHTML);
   }
-  return companies;
+  return names;
 }
 
 
 // Execute when document is ready.
 
 $(document).ready(function() {
-  var names = [];
-  var companies = addCompanies();
+  var companies = $(".company-name");
+  var names = addCompanies();
 
   // Add auto completion.
 
@@ -51,7 +52,7 @@ $(document).ready(function() {
 
   $(".search-bar input").keyup(function (event) {
     if (event.key == "Enter") {
-      findCompany($(".search-bar input").val());
+      findCompany($(".search-bar input").val(), companies);
     }
   });
 });
