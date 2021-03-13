@@ -9,9 +9,9 @@ little, we can all make a **difference**.
 
 ## Screenshots
 
-<img width="400" src="images/home.png">
+<img width="600" src="images/home.png">
 
-<img width="400" src="images/traffic.png">
+<img width="600" src="images/traffic.png">
 
 ## Features
 
