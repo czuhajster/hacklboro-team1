@@ -20,15 +20,19 @@
             </label>
             <select class="form-control" id="transport" name="transport">
                 <option value="car" selected="selected">Car</option>
-                <option value="walk">Walk</option>
                 <option value="plane">Plane</option>
+                <option value="bus">Bus</option>
                 <option value="train">Train</option>
             </select>
             <br>
-            <label for="miles" class="visually-hidden">
-                Journey Distance (Miles)
+            <label for="start" class="visually-hidden">
+                Start
             </label>
-            <input type="text" name="miles" id="miles" class="form-control" placeholder="0" required autofocus>
+            <input type="text" name="start" id="miles" class="form-control" required autofocus>
+            <label for="finish" class="visually-hidden">
+                Finish
+            </label>
+            <input type="text" name="finish" id="finish" class="form-control" required autofocus>
 
             <input type="submit" class="w-100 btn btn-lg green-button mt-4" value="Calculate">
         </form>

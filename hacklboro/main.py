@@ -1,6 +1,9 @@
 from flask import Flask, request, render_template, redirect, url_for, abort
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
+from geopy.geocoders import Nominatim
+from geopy.distance import geodesic
+
 import hacklboro.database
 
 from hacklboro.auth import User
@@ -152,9 +155,15 @@ def traffic_lights():
 @app.route("/calculator", methods=["GET", "POST"])
 def calculator():
     if request.method == "POST":
+        geolocator = Nominatim(user_agent="melon")
+
         emissions: float = 0
         transport = request.form["transport"]
-        miles: float = float(request.form["miles"])
+
+        start = geolocator.geocode(request.form["start"])
+        finish = geolocator.geocode(request.form["finish"])
+
+        miles = geodesic((start.latitude, start.longitude), (finish.latitude, finish.longitude)).miles
 
         if transport == "car":
             average_car_emissions_per_km: float = 0.1224
@@ -166,15 +175,18 @@ def calculator():
             average_plane_emissions_per_mile: float = average_plane_emissions_per_km * 1.60934
 
             emissions = miles * average_plane_emissions_per_mile
+        elif transport == "bus":
+            average_bus_emissions_per_km: float = 0.09
+            average_bus_emissions_per_mile: float = average_bus_emissions_per_km * 1.60934
+
+            emissions = miles * average_bus_emissions_per_mile
         elif transport == "train":
-            average_train_emissions_per_km: float = 0.09
+            average_train_emissions_per_km: float = 0.05
             average_train_emissions_per_mile: float = average_train_emissions_per_km * 1.60934
 
             emissions = miles * average_train_emissions_per_mile
-        elif transport == "walk":
-            emissions = 0
 
-        return render_template("calculator-result.html", emissions=f"{emissions:.2f}")
+        return render_template("calculator-result.html", emissions=f"{emissions:.2f}", distance=f"{miles:.2f}")
     return render_template("calculator.html")
 
 
