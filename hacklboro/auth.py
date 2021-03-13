@@ -12,7 +12,7 @@ class User(UserMixin):
         with sqlite3.connect(DATABASE_FILE) as con:
             con.row_factory = sqlite3.Row
             cur = con.cursor()
-            cur.execute("SELECT * FROM users WHERE id=?", userid)
+            cur.execute("SELECT * FROM users WHERE id=?", (userid,))
             return cur.fetchone()
 
     @staticmethod

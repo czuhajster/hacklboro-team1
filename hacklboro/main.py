@@ -53,7 +53,7 @@ def signup():
 
         return "hi"
     else:
-        return render_template("login.html")
+        return render_template("register.html")
 
 
 @app.route("/goals/data", methods=["GET", "POST", "PUT"])
