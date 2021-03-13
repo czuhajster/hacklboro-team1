@@ -16,11 +16,12 @@ class User(UserMixin):
             return cur.fetchone()
 
     @staticmethod
-    def get_from_username(username):
+    def get_from_username(username: str):
+        username = username.lower()
         with sqlite3.connect(DATABASE_FILE) as con:
             con.row_factory = sqlite3.Row
             cur = con.cursor()
-            cur.execute("SELECT * FROM users WHERE username=?", (username,))
+            cur.execute("SELECT * FROM users WHERE LOWER(username)=?", (username,))
             return cur.fetchone()
 
     @staticmethod
