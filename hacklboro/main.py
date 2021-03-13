@@ -88,12 +88,12 @@ def signup():
         return render_template("register.html")
 
 
-@app.route("/goals/data", methods=["GET", "POST", "PUT"])
+@app.route("/goals/data", methods=["GET", "POST", "PUT", "DELETE"])
 @login_required
 def goals_data():
     """
     API endpoint for interacting with the goals that the user has
-    This is used by the frontend to create/update goals with JavaScript
+    This is used by the frontend to create/update/delete goals with JavaScript
     """
     form = request.form
     user_id = current_user.userid
@@ -116,6 +116,13 @@ def goals_data():
         percentage: float = form["percentage"]
 
         success = update_goal(id, int(user_id), percentage)
+        if success:
+            return redirect("/goals")
+        abort(401)
+    elif request.method == "DELETE":
+        id: int = int(form["id"])
+        success = hacklboro.goals.delete_goal(id, int(user_id))
+
         if success:
             return redirect("/goals")
         abort(401)

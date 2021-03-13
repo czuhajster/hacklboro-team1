@@ -22,6 +22,15 @@ function sendForm(data, method) {
     XHR.send(urlEncodedData);
 }
 
+// Function to delete a user's goal
+function deleteGoal(id) {
+    const data = {
+      id: id  
+    };
+    
+    sendForm(data, "DELETE")
+}
+
 // Function to update the percentage of a user's goal by sending a PUT request to the server
 function changePercentage(id, percentage) {
     const data = {

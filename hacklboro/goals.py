@@ -25,7 +25,7 @@ def update_goal(id: int, user: int, percentage: float) -> bool:
     """
     with sqlite3.connect(DATABASE_FILE) as con:
         # Perform check to make sure the goal belongs to the user before updating it
-        cur: Cursor = con.execute("SELECT user FROM goals WHERE id = ?", (id, ))
+        cur: Cursor = con.execute("SELECT user FROM goals WHERE id = ?", (id,))
         result = cur.fetchone()[0]
 
         if result == user:
@@ -49,6 +49,24 @@ def get_goals(user: int, limit: int = 20) -> List[sqlite3.Row]:
             (user, limit)
         )
         return cur.fetchall()
+
+
+def delete_goal(id: int, user: int) -> bool:
+    """
+    Delete the given goal with the given parameters
+    """
+    with sqlite3.connect(DATABASE_FILE) as con:
+        # Perform check to make sure the goal belongs to the user before deleting it
+        cur: Cursor = con.execute("SELECT user FROM goals WHERE id = ?", (id,))
+        result = cur.fetchone()[0]
+        if result == user:
+            con.execute(
+                "DELETE FROM goals WHERE id = ?",
+                (id, )
+            )
+            return True
+
+        return False
 
 
 def get_goals_as_json(user: int, limit: int = 20) -> str:
