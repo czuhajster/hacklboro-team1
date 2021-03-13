@@ -86,10 +86,10 @@ def goals_data():
         return redirect("/goals")
     elif request.method == "PUT":
         # PUT method for updating current goals
-        id: int = form["id"]
+        id: int = int(form["id"])
         percentage: float = form["percentage"]
 
-        success = update_goal(id, user_id, percentage)
+        success = update_goal(id, int(user_id), percentage)
         if success:
             return redirect("/goals")
         abort(401)

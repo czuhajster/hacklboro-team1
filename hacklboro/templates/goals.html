@@ -7,6 +7,7 @@
 {% block head %}
     <link rel="stylesheet" href="../static/goals-style.css">
     <link rel="stylesheet" href="../static/progress-bars-style.css">
+    <script src="../static/script.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -51,6 +52,14 @@
                                 </div>
                                 <div class="col-lg-8 col-md-12 col-sm-12">
                                     {{ goal["name"] }}
+                                    <div>
+                                        <button class="btn btn-primary" onclick="changePercentage(
+                                                {{ goal["id"] }}, {{ goal["percentage"] - 10}}
+                                        )">-</button>
+                                        <button class="btn btn-primary" onclick="changePercentage(
+                                                {{ goal["id"] }}, {{ goal["percentage"] + 10}}
+                                        )">+</button>
+                                    </div>
                                 </div>
                             </div>     
                         </div>      
