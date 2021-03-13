@@ -6,22 +6,25 @@
 
 {% block head %}
     <link rel="stylesheet" href="../static/login-style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block content %}
-<script>
-    const AVERAGE_CAR_EMISSIONS_PER_KM = 0.1224;
-    const AVERAGE_CAR_EMISSIONS_PER_MILE = AVERAGE_CAR_EMISSIONS_PER_KM * 1.60934;
-
-    const updateEmissions = (miles) => {
-        document.getElementById("emissions").innerText =
-            (parseFloat(miles) * AVERAGE_CAR_EMISSIONS_PER_MILE).toFixed(2);
-    }
-</script>
 <main class=" container-fluid content-box text-center">
     <div class="container form-signin col-lg-3 col-md-6 col-sm-12">
         <form class="login-form" method="post">
             <h1 class="h3 mb-3 fw-normal green">Enter your journey details</h1>
+            <label for="transport" class="visually-hidden">
+                Transport Type
+            </label>
+            <select class="form-control" id="transport" name="transport">
+                <option value="car" selected="selected">Car</option>
+                <option value="walk">Walk</option>
+                <option value="plane">Plane</option>
+                <option value="train">Train</option>
+            </select>
+            <br>
             <label for="miles" class="visually-hidden">
                 Journey Distance (Miles)
             </label>
