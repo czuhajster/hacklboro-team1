@@ -1,23 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
+{% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../static/home-style.css">
-</head>
+{% endblock %}
 
-<body>
+{% block content %}
+<div>
 	<main>
 		<div class="welcome">
 			<h2>WELCOME TO</h2>
 			<h1>MELON</h1>
 			<h3>Make a goal today. Create a better tomorrow.</h3>
 			<div class="start">
-				<button>Let's get started   &#10171</button>
+				<button onclick="location.href = '/login';">Let's get started   &#10171</button>
 			</div>
 		</div>
-		<img id="goals-image" src="personal-goals.png" alt="Personal Goals">
+		<img id="goals-image" src="../static/personal-goals.png" alt="Personal Goals">
 	</main>
 
 	<hr>
@@ -55,7 +55,7 @@
 			</div>
 		</div>
 
-		<img id="team-image" src="team-project.png" alt="A hardworking team works hard">
+		<img id="team-image" src="../static/team-project.png" alt="A hardworking team works hard">
 
 		<div class="card">
 			<div class="green-card-header card-main">
@@ -77,5 +77,6 @@
 	
 	</div>
 
-</body>
-</html>
+    </div>
+</div>
+{% endblock %}

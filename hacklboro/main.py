@@ -142,4 +142,4 @@ def traffic_lights():
 
 @app.route("/")
 def home():
-    return render_template("goals.html")
+    return render_template("home.html")
