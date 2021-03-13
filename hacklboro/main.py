@@ -66,13 +66,13 @@ def goals_data():
         return get_goals_as_json(user_id)
     elif request.method == "POST":
         # POST method for creating new goals
-        percentage: float = form["percentage"]
+        percentage: float = 0
         name: str = form["name"]
-        increasing: bool = form["increasing"]
+        increasing: bool = True
 
         create_goal(user_id, percentage, name, increasing)
 
-        return "OK"
+        return redirect("/goals")
     elif request.method == "PUT":
         # PUT method for updating current goals
         id: int = form["id"]
@@ -80,7 +80,7 @@ def goals_data():
 
         success = update_goal(id, user_id, percentage)
         if success:
-            return "OK"
+            return redirect("/goals")
         abort(401)
 
 
