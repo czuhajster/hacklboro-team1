@@ -35,11 +35,11 @@
                             <div class="row">
                                 <div class="col-lg-4 col-md-12 col-sm-12">
                                     {% if goal["percentage"] > 70 %}
-                                    <div class="c100 p{{ goal['percentage']|round(2) }} green">
+                                    <div class="c100 p{{ goal['percentage']|int }} green">
                                     {% elif goal["percentage"] > 40 %}
-                                    <div class="c100 p{{ goal['percentage']|round(2) }} yellow">
+                                    <div class="c100 p{{ goal['percentage']|int }} yellow">
                                     {% else %}
-                                    <div class="c100 p{{ goal['percentage']|round(2) }} pink">
+                                    <div class="c100 p{{ goal['percentage']|int }} pink">
                                     {% endif %}
                                     <span>{{ goal["percentage"]|round(2) }}%</span>
                                         <div class="slice">
