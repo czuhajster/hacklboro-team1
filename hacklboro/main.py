@@ -27,8 +27,9 @@ def login():
 
         if User.verify(username, password):
             login_user(User(User.get_from_username(username)[0]))
-
-        return redirect(url_for('home'))
+            return redirect(url_for('home'))
+        else:
+            return render_template("login.html")
     else:
         return render_template("login.html")
 

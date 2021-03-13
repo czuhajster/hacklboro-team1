@@ -34,10 +34,13 @@ class User(UserMixin):
     @staticmethod
     def verify(username, password):
         user = User.get_from_username(username)
-        return bcrypt.verify(password, user["password"])
+        if user:
+            return bcrypt.verify(password, user["password"])
+        return False
 
     def __init__(self, userid):
         self.userid = userid
+        self.username = User.get_from_userid(userid)["username"]
 
     def get_id(self):
         return str(self.userid)
