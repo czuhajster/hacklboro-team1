@@ -1,3 +1,6 @@
+﻿[<img src="https://img.shields.io/github/workflow/status/DanielMaywood/hacklboro-team1/HackLboro">](https://github.com/DanielMaywood/hacklboro-team1/actions)
+<img src="https://img.shields.io/github/repo-size/DanielMaywood/hacklboro-team1">
+
 # Melon - HackLboro project
 
 We, as a species, are producing more CO2 now than ever before. These emissions **need to stop**. We created **Melon** as
