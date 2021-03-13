@@ -81,7 +81,7 @@ def signup():
 
         login_user(User(User.get_from_username(username)[0]))
 
-        return "hi"
+        return redirect("/")
     else:
         return render_template("register.html")
 
