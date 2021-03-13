@@ -1,5 +1,6 @@
 import sqlite3
 import json
+from typing import List
 
 
 def row_to_json(row: sqlite3.Row) -> str:
@@ -10,7 +11,7 @@ def row_to_json(row: sqlite3.Row) -> str:
     return json.dumps(d)
 
 
-def row_list_to_json(rows: list[sqlite3.Row]) -> str:
+def row_list_to_json(rows: List[sqlite3.Row]) -> str:
     l = []
     for row in rows:
         l.append(row_to_json(row))

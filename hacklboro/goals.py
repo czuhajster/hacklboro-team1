@@ -1,5 +1,5 @@
+from typing import List
 import sqlite3
-
 from sqlite3 import Cursor
 
 from hacklboro.database import DATABASE_FILE
@@ -32,7 +32,7 @@ def update_goal(id: int, user: int, percentage: float) -> bool:
         return False
 
 
-def get_goals(user: int, limit: int = 20) -> list[sqlite3.Row]:
+def get_goals(user: int, limit: int = 20) -> List[sqlite3.Row]:
     with sqlite3.connect(DATABASE_FILE) as con:
         con.row_factory = sqlite3.Row
         cur: Cursor = con.execute(
