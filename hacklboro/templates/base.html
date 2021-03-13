@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <nav class="myNavbar navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">m🍉lon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/traffic-lights">Traffic lights <span class="sr-only">(current)</span></a>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <span class="nav-item active">
+                        <a class="nav-link" href="/goals">Goals</a>
+                    </span>
+                </li>
+                {% endif %}
+            </ul>
+
+            {% if current_user.is_authenticated %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            <!-- <img src="../images/tangil.jpg" alt="not tangil" class="rounded-circle circle-icon"> -->
+                            {{ current_user.username }}
+                        </a>
+                     </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/logout">Logout</a>
+                     </li>
+                </ul>
+            {% else %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/signup">Register</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                </ul>
+            {% endif %}
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="myFooter mastfoot mt-auto center">
+        <div class="inner">
+          <p>
+              Created by
+              <a href="https://github.com/TheBlocks">Tangil</a>,
+              <a href="https://github.com/czuhajster">Arkadiusz</a>,
+              <a href="https://github.com/DanielMaywood">Dan</a>,
+              <a href="https://github.com/weronikazak">Weronika</a> and 
+              <a href="https://github.com/zaynab-rashid">Zaynab</a>.
+              HackLboro 2021
+          </p>
+        </div>
+    </footer>
+</body>
+</html>

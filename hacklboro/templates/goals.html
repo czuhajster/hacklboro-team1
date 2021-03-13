@@ -1,29 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="{{url_for('static', filename='goals-style.css')}}">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="{{url_for('static', filename='progress-bars-style.css')}}">
-<head>
-    <meta charset="UTF-8">
-    <title>Goals</title>
-</head>
-<body>
-    
-    {% block navbar %}
-    <!--apparently it doesnt extend shit, so it's better to copy-paste from navbar.html -->
-    {% endblock navbar %}
+{% extends 'base.html' %}
+
+{% block title %}
+    Goals
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="../static/goals-style.css">
+    <link rel="stylesheet" href="../static/progress-bars-style.css">
+{% endblock %}
+
+{% block content %}
 <main>
-    <div class="container-fluid mt-3 content-box">>
-    
+    <div class="container-fluid mt-3 content-box">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
                 <div class="container">
                     <div class="margin-top"></div>
-                    <form class="form-inline">
-                        <input class="form-control form-control-lg col-12" type="search" placeholder="Type your new goal..." aria-label="Type your new goal..">
+                    <form class="form-inline" action="/goals/data" method="post">
+                        <input name="name" class="form-control form-control-lg col-12" type="search" placeholder="Type your new goal..." aria-label="Type your new goal..">
                         <button class="mt-2 btn-lg btn col-12 green-button" type="submit">Add new goal</button>
-                    </form>    
+                    </form>
                 </div>
             </div>
         
@@ -32,163 +28,39 @@
         <div class="overflow-auto overflow">
             <div class="container-fluid">
                 <div class="row">
+                    {% for goal in goals %}
                     <div class="container col-lg-6 col-md-6 col-sm-6  mb-3">
                         <div class="progressBar col-12 p-3">
                             <div class="row">
                                 <div class="col-lg-4 col-md-12 col-sm-12">
+                                    {% if goal["percentage"] > 70 %}
+                                    <div class="progress green">
+                                    {% elif goal["percentage"] > 40 %}
                                     <div class="progress yellow">
-                                        <span class="progress-left">
-                                            <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                            <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">90%</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8 col-md-12 col-sm-12">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel pellentesque ipsum.
-                                    Proin faucibus placerat libero vitae gravida. Maecenas ut pharetra est.
-                                    Vivamus ac nulla in orci pulvinar ornare sed at libero.
-                                </div>
-                            </div>     
-                        </div>      
-                    </div>        
-
-                    <div class="container col-lg-6 col-md-6 col-sm-6  mb-3">
-                        <div class="progressBar col-12 p-3">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-12 col-sm-12">
-                                    <div class="progress green">
-                                        <span class="progress-left">
-                                            <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                            <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">75%</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8 col-md-12 col-sm-12">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel pellentesque ipsum.
-                                    Proin faucibus placerat libero vitae gravida. Maecenas ut pharetra est.
-                                    Vivamus ac nulla in orci pulvinar ornare sed at libero.
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="container col-lg-6 col-md-6 col-sm-6  mb-3">
-                        <div class="progressBar col-12 p-3">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-12 col-sm-12">
-                                    <div class="progress green">
-                                        <span class="progress-left">
-                                            <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                            <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">90%</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8 col-md-12 col-sm-12">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel pellentesque ipsum.
-                                    Proin faucibus placerat libero vitae gravida. Maecenas ut pharetra est.
-                                    Vivamus ac nulla in orci pulvinar ornare sed at libero.
-                                </div>
-                            </div>
-                            
-                            
-                        </div>      
-                    </div>        
-
-                    <div class="container col-lg-6 col-md-6 col-sm-6 mb-3">
-                        <div class="progressBar col-12 p-3">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-12 col-sm-12">
+                                    {% else %}
                                     <div class="progress pink">
+                                    {% endif %}
                                         <span class="progress-left">
                                             <span class="progress-bar"></span>
                                         </span>
                                         <span class="progress-right">
                                             <span class="progress-bar"></span>
                                         </span>
-                                        <div class="progress-value">75%</div>
+                                        <div class="progress-value">{{ goal["percentage"]|round(2) }}%</div>
                                     </div>
                                 </div>
                                 <div class="col-lg-8 col-md-12 col-sm-12">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel pellentesque ipsum.
-                                    Proin faucibus placerat libero vitae gravida. Maecenas ut pharetra est.
-                                    Vivamus ac nulla in orci pulvinar ornare sed at libero.
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="container col-lg-6 col-md-6 col-sm-6  mb-3">
-                        <div class="progressBar col-12 p-3">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-12 col-sm-12">
-                                    <div class="progress yellow">
-                                        <span class="progress-left">
-                                            <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                            <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">90%</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8 col-md-12 col-sm-12">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel pellentesque ipsum.
-                                    Proin faucibus placerat libero vitae gravida. Maecenas ut pharetra est.
-                                    Vivamus ac nulla in orci pulvinar ornare sed at libero.
+                                    {{ goal["name"] }}
                                 </div>
                             </div>     
                         </div>      
-                    </div>        
-
-                    <div class="container col-lg-6 col-md-6 col-sm-6  mb-3">
-                        <div class="progressBar col-12 p-3">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-12 col-sm-12">
-                                    <div class="progress green">
-                                        <span class="progress-left">
-                                            <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                            <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">75%</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8 col-md-12 col-sm-12">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel pellentesque ipsum.
-                                    Proin faucibus placerat libero vitae gravida. Maecenas ut pharetra est.
-                                    Vivamus ac nulla in orci pulvinar ornare sed at libero.
-                                </div>
-                            </div>
-                        </div>    
                     </div>
+                    {% endfor %}
                 </div>
             </div>    
             </div>  
-        </div>    
+        </div>
     </div>
     </div>
 </main>
-
-
-{% block footer %}{% endblock footer %}
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-</html>
+{% endblock %}
