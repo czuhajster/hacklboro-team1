@@ -27,8 +27,9 @@ def login():
 
         if User.verify(username, password):
             login_user(User(User.get_from_username(username)[0]))
-
-        return redirect(url_for('home'))
+            return redirect(url_for('home'))
+        else:
+            return render_template("login.html")
     else:
         return render_template("login.html")
 
@@ -52,7 +53,7 @@ def signup():
 
         return "hi"
     else:
-        return render_template("login.html")
+        return render_template("register.html")
 
 
 @app.route("/goals/data", methods=["GET", "POST", "PUT"])
@@ -66,13 +67,13 @@ def goals_data():
         return get_goals_as_json(user_id)
     elif request.method == "POST":
         # POST method for creating new goals
-        percentage: float = form["percentage"]
+        percentage: float = 0
         name: str = form["name"]
-        increasing: bool = form["increasing"]
+        increasing: bool = True
 
         create_goal(user_id, percentage, name, increasing)
 
-        return "OK"
+        return redirect("/goals")
     elif request.method == "PUT":
         # PUT method for updating current goals
         id: int = form["id"]
@@ -80,14 +81,16 @@ def goals_data():
 
         success = update_goal(id, user_id, percentage)
         if success:
-            return "OK"
+            return redirect("/goals")
         abort(401)
 
 
 @app.route("/goals")
 @login_required
 def goals():
-    return render_template("goals.html")
+    user_id = current_user.userid
+    goals = get_goals(user_id)
+    return render_template("goals.html", goals=goals)
 
 
 @app.route("/traffic-lights")
