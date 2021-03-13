@@ -11,6 +11,8 @@ from hacklboro.goals import get_goals, get_goals_as_json, create_goal, update_go
 from hacklboro.lights import get_companies
 from hacklboro.utilities import row_list_to_json
 
+import random
+
 app = Flask(__name__)
 app.secret_key = "wWfZsm9tAtjT8G5svySA7BfQtaua7qC9VrysKJMr8GEqvZ"
 login_manager = LoginManager()
@@ -155,6 +157,16 @@ def traffic_lights():
 @app.route("/calculator", methods=["GET", "POST"])
 def calculator():
     if request.method == "POST":
+        random_facts = [
+            "Coal burning globally emits 14.7 billion tonnes of CO2 each year.",
+            "Oil burning globally emits 12.4 billion tonnes of CO2 each year.",
+            "Gas burning globally emits 7.5 billion tonnes of CO2 each year.",
+            "China emits 10 billion tonnes of CO2 each year.",
+            "USA emits 5 billion tonnes of CO2 each year.",
+            "800 million people are at risk due to climate change impacts.",
+            "800,000 hectares of mangroves are lost each year. These mangroves are vital for storing carbon dioxide.",
+        ]
+
         geolocator = Nominatim(user_agent="melon")
 
         emissions: float = 0
@@ -191,7 +203,7 @@ def calculator():
 
             emissions = miles * average_cruise_emissions_per_mile
 
-        return render_template("calculator-result.html", emissions=f"{emissions:.2f}", distance=f"{miles:.2f}")
+        return render_template("calculator-result.html", emissions=f"{emissions:.2f}", distance=f"{miles:.2f}", fact=random.choice(random_facts))
     return render_template("calculator.html")
 
 
