@@ -87,7 +87,9 @@ def goals_data():
 @app.route("/goals")
 @login_required
 def goals():
-    return render_template("goals.html")
+    user_id = current_user.userid
+    goals = get_goals(user_id)
+    return render_template("goals.html", goals=goals)
 
 
 @app.route("/traffic-lights")
