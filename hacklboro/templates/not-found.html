@@ -1,20 +1,22 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Not Found</title>
+    {% block title %} Not Found {% endblock %}
+    {% block head %}
     <link rel="stylesheet" href="../static/not-found.css">
+    {% endblock %}
 </head>
 <body>
-    {% block navbar %}
-    {% endblock navbar %}
+  {% block content %}
 <h1>
     4 &#127817 4
 </h1>
 <h2>
     The page has not been found
 </h2>
-    {% block footer %}
-    {% endblock footer %}
+  {% endblock %}
 </body>
 </html>
