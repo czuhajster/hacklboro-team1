@@ -19,6 +19,11 @@ def page_not_found(e):
     return render_template('not-found.html'), 404
 
 
+@app.errorhandler(401)
+def unauthorized(e):
+    return render_template('unauthorized.html'), 401
+
+
 @login_manager.user_loader
 def load_user(userid):
     return User(userid)
