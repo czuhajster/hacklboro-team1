@@ -1,0 +1,136 @@
+
+* {
+	font-family: sans-serif;
+}
+
+
+main {
+	height: 100vh;
+	width: 100%;
+	display: block;
+}
+
+
+.welcome {
+	padding-left: 170px;
+	padding-top: 190px;
+	text-align: left;
+}
+
+
+h1 {
+	font-size: 80px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+
+button {
+	text-decoration: none;
+	border: none;
+	background-color: #efefef;
+	width: 200px;
+	padding: 10px 15px;
+	box-shadow: 0 5px 8px #dcdcdc;
+	border-radius: 5px;
+	transition-duration: 0.2s;
+	align-content: center;
+	overflow: hidden;
+	font-size: 15px;
+	margin-top: 5px;
+}
+
+
+button:hover {
+	box-shadow: 0 15px 16px #dcdcdc;
+}
+
+
+#goals-image {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	z-index: -1;
+	height: 70%;
+}
+
+
+hr {
+  border-top: 50px solid #efefef;
+  border-radius: 5px;
+}
+
+
+.team {
+	padding: 0 8%;
+}
+
+
+.teammembers {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.teamTitle {
+	display: block;
+	text-align: center;
+	font-size: 50px;
+}
+
+
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 250px;
+	background-color: #efefef;
+	border-radius: 15px;
+	margin: 0px 30px 60px 30px;
+	min-height: 250px;
+	text-align: center;
+}
+
+
+.green-card-header {
+	background-color: #b5ead7;
+	border-radius: 15px 15px 0 0;
+}
+
+
+.amber-card-header {
+	background-color: #ffdac1;
+	border-radius: 15px 15px 0 0;
+}
+
+
+.red-card-header {
+	background-color: #ff9aa2;
+	border-radius: 15px 15px 0 0;
+}
+
+
+#team-image {
+	position: relative;
+	left: 10px;
+	height: 300px;
+	padding: 0 0;
+	z-index: -1;
+}
+
+.circle-icon {
+	margin-top: 20px;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+	border: 3px solid rgb(226, 226, 226);
+}
+
+.melon {
+	font-size: 22px;
+	width: 30px;
+	position: relative;
+	text-align: left;
+}

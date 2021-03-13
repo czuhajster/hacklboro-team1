@@ -853,27 +853,45 @@
 .c100.dark:hover > span {
   color: #c6ff00;
 }
+
+/* GREEN */
 .c100.green .bar, .c100.green .fill {
-  border-color: #4db53c !important;
+  border-color: #b5ead7 !important;
 }
 .c100.green:hover > span {
-  color: #4db53c;
+  color: #b5ead7;
 }
 .c100.green.dark .bar, .c100.green.dark .fill {
-  border-color: #5fd400 !important;
+  border-color: #6cffc9 !important;
 }
 .c100.green.dark:hover > span {
-  color: #5fd400;
+  color: #6cffc9;
 }
-.c100.orange .bar, .c100.orange .fill {
-  border-color: #dd9d22 !important;
+
+/* YELLOW */
+.c100.yellow .bar, .c100.yellow .fill {
+  border-color: #ffdac1 !important;
 }
-.c100.orange:hover > span {
-  color: #dd9d22;
+.c100.yellow:hover > span {
+  color: #ffdac1;
 }
-.c100.orange.dark .bar, .c100.orange.dark .fill {
-  border-color: #e08833 !important;
+.c100.yellow.dark .bar, .c100.yellow.dark .fill {
+  border-color: #ffb685 !important;
 }
-.c100.orange.dark:hover > span {
-  color: #e08833;
+.c100.yellow.dark:hover > span {
+  color: #ffb685;
+}
+
+/* PINK */
+.c100.pink .bar, .c100.pink .fill {
+  border-color: #ff9aa2 !important;
+}
+.c100.pink:hover > span {
+  color: #ff9aa2;
+}
+.c100.pink.dark .bar, .c100.pink.dark .fill {
+  border-color: #ff5d6b !important;
+}
+.c100.pink.dark:hover > span {
+  color: #ff5d6b;
 }
