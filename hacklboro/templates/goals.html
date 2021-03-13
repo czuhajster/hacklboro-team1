@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="../static/goals-style.css">
     <link rel="stylesheet" href="../static/progress-bars-style.css">
     <script src="../static/script.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block content %}
@@ -21,6 +25,19 @@
                         <input name="name" class="form-control form-control-lg col-12" type="search" placeholder="Type your new goal..." aria-label="Type your new goal..">
                         <button class="mt-2 btn-lg btn col-12 green-button" type="submit">Add new goal</button>
                     </form>
+                </div>
+                <div class="container mt-5 d-flex flex-row">
+                    <h4 class="p-2">I want to...</h4>
+                    <div class="align-right">
+                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select a goal
+                        </button>
+                        <div class="dropdown-menu p-2">
+                            <a class="dropdown-item" onclick="goalSuggestion(0);">eat more responsibly</a>
+                            <a class="dropdown-item" onclick="goalSuggestion(1);">produce less CO2 from transport</a>
+                            <a class="dropdown-item" onclick="goalSuggestion(2);">use the bicycle more</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         
