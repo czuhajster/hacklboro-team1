@@ -6,9 +6,10 @@
 function findCompany(name, companies) {
   for (let i = 0; i < companies.length; i++) {
     if (name == companies[i].innerHTML) {
-      window.location.hash = '#' + name;
-      $("#" + name).focus();
-      $(".not-found").remove();
+      document.getElementById(name).scrollIntoView();
+      if($(".not-found").length == 1) {
+        $(".not-found").remove();
+      }
       return; // Terminate function
     }
   }
@@ -35,6 +36,7 @@ function addCompanies() {
 $(document).ready(function() {
   var companies = $(".company-name");
   var names = addCompanies();
+  console.log(names);
 
   // Add auto completion.
 
