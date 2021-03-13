@@ -77,10 +77,16 @@ input[type=text] {
 }
 
 .not-found {
-    float: right;
     text-align: center;
     background-color: #ff9aa2;
     border-radius: 15px;
+    float: right;
+    z-index: -1;
+    font-size: 17px;
+    padding: 6px 40px 6px 6px;
+    text-align: left;
+    position: relative;
+    left: 30px;
 }
 
 .ui-autocomplete {
@@ -90,9 +96,11 @@ input[type=text] {
     // margin-right: 50px;
 }
 
+/*
 .ui-autocomplete li {
-    border-top: 1px solid #999999;
+    // border-top: 1px solid #999999;
 }
+*/
 
 .ui-helper-hidden-accessible {
     display:none;
