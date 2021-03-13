@@ -14,6 +14,11 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('not-found.html'), 404
+
+
 @login_manager.user_loader
 def load_user(userid):
     return User(userid)
