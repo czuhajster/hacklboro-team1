@@ -35,30 +35,28 @@
                             <div class="row">
                                 <div class="col-lg-4 col-md-12 col-sm-12">
                                     {% if goal["percentage"] > 70 %}
-                                    <div class="progress green">
+                                    <div class="c100 p{{ goal['percentage']|round(2) }} green">
                                     {% elif goal["percentage"] > 40 %}
-                                    <div class="progress yellow">
+                                    <div class="c100 p{{ goal['percentage']|round(2) }} yellow">
                                     {% else %}
-                                    <div class="progress pink">
+                                    <div class="c100 p{{ goal['percentage']|round(2) }} pink">
                                     {% endif %}
-                                        <span class="progress-left">
-                                            <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                            <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">{{ goal["percentage"]|round(2) }}%</div>
+                                    <span>{{ goal["percentage"]|round(2) }}%</span>
+                                        <div class="slice">
+                                            <div class="bar"></div>
+                                            <div class="fill"></div>
+                                    </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-8 col-md-12 col-sm-12">
                                     {{ goal["name"] }}
                                     <div>
-                                        <button class="btn btn-primary" onclick="changePercentage(
+                                        <!-- <button class="btn btn-primary" onclick="changePercentage(
                                                 {{ goal["id"] }}, {{ goal["percentage"] - 10}}
                                         )">-</button>
                                         <button class="btn btn-primary" onclick="changePercentage(
                                                 {{ goal["id"] }}, {{ goal["percentage"] + 10}}
-                                        )">+</button>
+                                        )">+</button> -->
                                     </div>
                                 </div>
                             </div>     
